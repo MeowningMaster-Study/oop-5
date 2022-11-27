@@ -44,13 +44,14 @@ public class Handler extends DefaultHandler {
         }
     }
 
-    public void setField(String attributeName, String str, Map<String, String> attributes) {
+    public void setField(String attributeName, String value, Map<String, String> attributes) {
+        this.value = value;
         switch (attributeName) {
             case Strings.PAPER -> {
                 Paper paper = new Paper();
                 papers.add(paper);
             }
-            case Strings.ID -> getLastPaper().setId(Integer.parseInt(str));
+            case Strings.ID -> getLastPaper().setId(Integer.parseInt(value));
             case Strings.TITLE -> getLastPaper().setTitle(value);
             case Strings.TYPE -> getLastPaper().setType(value);
             case Strings.MONTHLY -> getLastPaper().setMonthly(Boolean.parseBoolean(value));
