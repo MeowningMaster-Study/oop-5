@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class XSDChecker {
-    public static boolean validateXMLByXSD(String xmlPath, String xsdPath) {
+    public static boolean apply(String xmlPath, String xsdPath) {
         try {
             validateThrows(xsdPath, xmlPath);
         } catch (IOException | SAXException e) {
