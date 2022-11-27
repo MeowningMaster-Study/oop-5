@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<papers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="papers.xsd">
+    <paper id="1">
+        <title>The Times</title>
+        <type>magazine</type>
+        <monthly>true</monthly>
+        <chars>
+            <colored>true</colored>
+            <pagesCount>15</pagesCount>
+            <glossy>true</glossy>
+            <subscriptionIndex>16AB43</subscriptionIndex>
+        </chars>
+    </paper>
+
+    <paper id="2">
+        <title>Science</title>
+        <type>newspaper</type>
+        <monthly>true</monthly>
+        <chars>
+            <colored>true</colored>
+            <pagesCount>45</pagesCount>
+            <glossy>false</glossy>
+            <subscriptionIndex>GH423A</subscriptionIndex>
+        </chars>
+    </paper>
+
+    <paper id="3">
+        <title>Booky</title>
+        <type>booklet</type>
+        <monthly>false</monthly>
+        <chars>
+            <colored>false</colored>
+            <pagesCount>4</pagesCount>
+            <glossy>false</glossy>
+            <subscriptionIndex>IR124S</subscriptionIndex>
+        </chars>
+    </paper>
+</papers>
