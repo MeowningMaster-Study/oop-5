@@ -10,15 +10,12 @@ import java.io.IOException;
 
 public class SAXParser {
 
-    public Papers parseXml(String xmlPath) throws SAXException, IOException, ParserConfigurationException {
+    public static Papers apply(String xmlPath) throws SAXException, IOException, ParserConfigurationException {
         var xml = new File(xmlPath);
-
         var saxParserFactory = SAXParserFactory.newInstance();
         var saxParser = saxParserFactory.newSAXParser();
-
         var handler = new Handler();
         saxParser.parse(xml, handler);
-
         return new Papers(handler.getPapersList());
     }
 }

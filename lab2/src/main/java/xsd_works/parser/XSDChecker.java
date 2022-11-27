@@ -14,7 +14,7 @@ public class XSDChecker {
         try {
             validateThrows(xsdPath, xmlPath);
         } catch (IOException | SAXException e) {
-            throw new IllegalStateException("XML file is not valid", e);
+            throw new IllegalStateException("Unvalid XML", e);
         }
         return true;
     }

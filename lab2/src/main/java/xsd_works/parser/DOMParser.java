@@ -17,8 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DOMParser {
-
-    public Papers parseXml(String xmlPath, String xsdPath)
+    public static Papers apply(String xmlPath, String xsdPath)
             throws ParserConfigurationException, IOException, SAXException {
         var dbf = DocumentBuilderFactory.newInstance();
         var db = dbf.newDocumentBuilder();
@@ -35,7 +34,7 @@ public class DOMParser {
         return new Papers(papers);
     }
 
-    private Paper createPaper(Element element) {
+    private static Paper createPaper(Element element) {
         int id = Integer.parseInt(element.getAttribute(ID));
         String title = getByTag(element, TITLE);
         String type = getByTag(element, TYPE);
@@ -44,7 +43,7 @@ public class DOMParser {
         return new Paper(id, title, type, monthly, createChars(chars));
     }
 
-    private Chars createChars(Element element) {
+    private static Chars createChars(Element element) {
         boolean colored = Boolean.parseBoolean(getByTag(element, COLORED));
         int pagesCount = Integer.parseInt(getByTag(element, PAGES_COUNT));
         boolean glossy = Boolean.parseBoolean(getByTag(element, GLOSSY));
@@ -52,8 +51,7 @@ public class DOMParser {
         return new Chars(colored, pagesCount, glossy, subscriptionIndex);
     }
 
-    private String getByTag(Element element, String tag) {
+    private static String getByTag(Element element, String tag) {
         return element.getElementsByTagName(tag).item(0).getTextContent();
     }
-
 }

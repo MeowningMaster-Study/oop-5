@@ -11,24 +11,21 @@ public class Main {
     public static void main(String[] args) throws Exception {
         {
             System.out.println("DOM");
-            var parser = new DOMParser();
-            var papers = parser.parseXml(XMLPath, XSDPath);
+            var papers = DOMParser.apply(XMLPath, XSDPath);
             System.out.println(papers);
             System.out.println();
         }
 
         {
             System.out.println("StAX");
-            var parser = new StAXParser();
-            var papers = parser.parseXml(XMLPath);
+            var papers = StAXParser.apply(XMLPath);
             System.out.println(papers);
             System.out.println();
         }
 
         {
             System.out.println("SAX");
-            var parser = new SAXParser();
-            var papers = parser.parseXml(XMLPath);
+            var papers = SAXParser.apply(XMLPath);
             System.out.println(papers);
             System.out.println();
         }

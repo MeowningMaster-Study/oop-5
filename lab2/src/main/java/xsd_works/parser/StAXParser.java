@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StAXParser {
-    public Papers parseXml(String xmlPath) throws XMLStreamException, FileNotFoundException {
+    public static Papers apply(String xmlPath) throws XMLStreamException, FileNotFoundException {
         var xml = new File(xmlPath);
 
         var xmlInputFactory = XMLInputFactory.newInstance();
