@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lines</string>
+    <string name="no_way">There are no way to this position</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="score">Score</string>
+</resources>
