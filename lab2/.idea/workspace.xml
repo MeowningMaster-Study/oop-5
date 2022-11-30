@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad3bb857-ac30-42bb-8707-4b30c5a5416a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xsd_works/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xsd_works/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xsd_works/parser/DOMParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xsd_works/parser/DOMParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/xsd_works/DOMParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/xsd_works/DOMParserTest.java" afterDir="false" />
     </list>
@@ -41,7 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/meowster/Projects/School/oop-5/lab1"
+    "last_opened_file_path": "/home/meowster/Projects/School/oop-5/lab2"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -54,6 +51,7 @@
       <updated>1669823048052</updated>
       <workItem from="1669823049819" duration="136000" />
       <workItem from="1669824355478" duration="862000" />
+      <workItem from="1669825625850" duration="265000" />
     </task>
     <servers />
   </component>
@@ -70,16 +68,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/xsd_works/parser/DOMParser.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
