@@ -25,7 +25,7 @@ class GameController : Serializable {
     }
 
     fun getCell(location: YX): Cell {
-        return field[location.x][location.y]
+        return field[location.y][location.x]
     }
 
     private fun createCells() {
@@ -66,28 +66,18 @@ class GameController : Serializable {
         generateNextColors()
     }
 
-    fun replaceBall(sourceYX: YX, destYX: YX): Boolean {
+    fun moveBall(sourceYX: YX, destYX: YX): Boolean {
         val source = getCell(sourceYX)
         val dest = getCell(destYX)
-        return if (!source.isEmpty()) {
-            if (dest.isEmpty()) {
-                val isPath: Boolean = PathFinder.findPath(field, sourceYX, destYX)
-                if (isPath) {
-                    val tmp = Cell().copy(dest)
-                    dest.copy(source)
-                    source.copy(tmp)
-                    val destroyed = destroyCells(destYX)
-                    if (!destroyed) {
-                        placePhaseBalls()
-                        generateNextColors()
-                    }
-                    true
-                } else {
-                    false
-                }
-            } else {
-                false
+        return if (!source.isEmpty() && dest.isEmpty() && PathFinder(field, sourceYX, destYX).check()) {
+            dest.copy(source)
+            source.makeEmpty()
+            val destroyed = destroyCells(destYX)
+            if (!destroyed) {
+                placePhaseBalls()
+                generateNextColors()
             }
+            true
         } else {
             false
         }
@@ -96,76 +86,67 @@ class GameController : Serializable {
     /**
      * Destroy cells around target if needed
      */
-    private fun destroyCells(location: YX): Boolean {
-        val row = location.y
-        val column = location.x
-        val cellFrom = field[row][column]
-        //check combination in a row
-        var numberOfSameBallsInRow = 1
+    private fun destroyCells(c: YX): Boolean {
+        val cellFrom = getCell(c)
+
+        var ballsInRow = 1
         var left = 0
         var right = 0
-        for (i in column + 1 until columns) { //on the right from main cell
-            val current = field[row][i]
+        for (i in c.x + 1 until columns) {
+            val current = field[c.y][i]
             if (current.color == cellFrom.color) {
-                numberOfSameBallsInRow++
+                ballsInRow++
                 right++
             } else break
         }
-        for (i in column - 1 downTo 0) { //on the left from main cell
-            val current = field[row][i]
+        for (i in c.x - 1 downTo 0) {
+            val current = field[c.y][i]
             if (current.color == cellFrom.color) {
-                numberOfSameBallsInRow++
+                ballsInRow++
                 left++
             } else break
         }
-        if (numberOfSameBallsInRow >= cellsToDestroy) {
+        if (ballsInRow >= cellsToDestroy) {
             cellFrom.clear()
-            for (i in column + 1 until column + right + 1) { //on the right from main cell
-                val current = field[row][i]
+            for (i in c.x - left until c.x + right + 1) {
+                val current = field[c.y][i]
                 current.clear()
             }
-            for (i in column - 1 downTo column - 1 - left + 1) { //on the left from main cell
-                val current = field[row][i]
-                current.clear()
-            }
-            score += numberOfSameBallsInRow
-            emptyCells += numberOfSameBallsInRow
-            return true
+            score += ballsInRow - 1
+            emptyCells += ballsInRow - 1
         }
 
-
-        //check combination in a column
-        var numberOfSameBallsInColumn = 1
+        var ballsInColumn = 1
         var up = 0
         var down = 0
-        for (i in row + 1 until rows) { //on the right from main cell
-            val current = field[i][column]
+        for (i in c.y + 1 until rows) {
+            val current = field[i][c.x]
             if (current.color == cellFrom.color) {
-                numberOfSameBallsInColumn++
+                ballsInColumn++
                 down++
             } else break
         }
-        for (i in row - 1 downTo 0) { //on the left from main cell
-            val current = field[i][column]
+        for (i in c.y - 1 downTo 0) {
+            val current = field[i][c.x]
             if (current.color == cellFrom.color) {
-                numberOfSameBallsInColumn++
+                ballsInColumn++
                 up++
             } else break
         }
-        if (numberOfSameBallsInColumn >= cellsToDestroy) {
+        if (ballsInColumn >= cellsToDestroy) {
             cellFrom.clear()
-            for (i in row + 1 until row + down + 1) { //on the right from main cell
-                val current = field[i][column]
+            for (i in c.y - up until c.y + down + 1) {
+                val current = field[i][c.x]
                 current.clear()
             }
-            for (i in row - 1 downTo row - 1 - up + 1) { //on the left from main cell
-                val current = field[i][column]
-                current.clear()
-            }
-            score += numberOfSameBallsInColumn
-            emptyCells += numberOfSameBallsInColumn
-            return true
+            score += ballsInColumn - 1
+            emptyCells += ballsInColumn - 1
         }
-        return false
+
+        return if (ballsInRow >= cellsToDestroy || ballsInColumn >= cellsToDestroy) {
+            score += 1
+            emptyCells += 1
+            true
+        } else false
     }
 }

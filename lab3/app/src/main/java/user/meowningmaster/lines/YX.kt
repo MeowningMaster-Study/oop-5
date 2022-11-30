@@ -4,14 +4,18 @@ package user.meowningmaster.lines
  * Coordinates or size
  */
 class YX(var y: Int, var x: Int) {
-    private fun boundBy(bound: YX): YX {
-        y %= bound.y
-        x %= bound.x
-        return this
-    }
+//    private fun boundBy(bound: YX): YX {
+//        y %= bound.y
+//        x %= bound.x
+//        return this
+//    }
+//
+//    fun boundByField(): YX {
+//        return boundBy(Settings.fieldSize)
+//    }
 
-    fun boundByField(): YX {
-        return boundBy(Settings.fieldSize)
+    fun inField(): Boolean {
+        return y >= 0 && y < Settings.fieldSize.y && x >= 0 && x < Settings.fieldSize.x
     }
 
     override fun hashCode(): Int {

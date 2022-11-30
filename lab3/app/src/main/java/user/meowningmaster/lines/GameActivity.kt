@@ -115,18 +115,17 @@ class GameActivity : AppCompatActivity() {
                 val cell = controller.getCell(yx)
                 if (!cell.isEmpty()) fromYX = yx
             } else {
-                val replaced = controller.replaceBall(fromYX!!, yx)
+                val replaced = controller.moveBall(fromYX!!, yx)
                 fromYX = null
-                if (replaced) {
-                    replacedBallHandler()
-                } else {
+                syncState()
+                if (!replaced) {
                     Toast.makeText(baseContext, R.string.no_way, Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
-    private fun replacedBallHandler() {
-        updateFieldView()
+    private fun syncState() {
+        updateField()
         updateNextColors()
         val score = controller.score
         updateScore(score)
@@ -139,7 +138,7 @@ class GameActivity : AppCompatActivity() {
         showDialogWindow(this)
     }
 
-    private fun updateFieldView() {
+    private fun updateField() {
         for (i in 0 until Settings.fieldSize.y) {
             for (j in 0 until Settings.fieldSize.x) {
                 val yx = YX(i, j)
@@ -160,6 +159,6 @@ class GameActivity : AppCompatActivity() {
         controller = GameController()
         updateNextColors()
         updateScore(0)
-        updateFieldView()
+        updateField()
     }
 }

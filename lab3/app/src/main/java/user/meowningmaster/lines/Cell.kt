@@ -2,8 +2,10 @@ package user.meowningmaster.lines
 
 import java.io.Serializable
 
+var emptyColor = 1
+
 class Cell() : Serializable {
-    var color = -1
+    var color = emptyColor
 
     fun copy(source: Cell): Cell {
         color = source.color
@@ -11,10 +13,14 @@ class Cell() : Serializable {
     }
 
     fun clear() {
-        color = -1
+        color = emptyColor
     }
 
     fun isEmpty(): Boolean {
-        return color == -1
+        return color == emptyColor
+    }
+
+    fun makeEmpty() {
+        color = emptyColor
     }
 }
