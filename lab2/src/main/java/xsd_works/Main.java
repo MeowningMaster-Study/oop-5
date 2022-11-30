@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         {
             System.out.println("DOM");
-            var papers = DOMParser.apply(XMLPath, XSDPath);
+            var papers = DOMParser.apply(XMLPath);
             System.out.println(papers);
             System.out.println();
         }

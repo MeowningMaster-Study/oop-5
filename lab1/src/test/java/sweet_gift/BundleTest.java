@@ -11,6 +11,8 @@ import sweet_gift.Sweets.Filling;
 import sweet_gift.Sweets.Lollipop;
 import sweet_gift.Sweets.Sweet;
 
+import java.util.ArrayList;
+
 public class BundleTest {
     @Test
     public void sortTest() {
@@ -25,16 +27,17 @@ public class BundleTest {
         c3.setFilling(Filling.MILK);
 
         Bundle bundle = new Bundle();
-        bundle.add(l1);
-        bundle.add(l2);
-        bundle.add(l3);
-        bundle.add(c1);
-        bundle.add(c2);
-        bundle.add(c3);
+        ArrayList<Sweet> sweets = bundle.getSweets();
+        sweets.add(l1);
+        sweets.add(l2);
+        sweets.add(l3);
+        sweets.add(c1);
+        sweets.add(c2);
+        sweets.add(c3);
 
         bundle.sortSugar();
         Sweet[] cmp = { l1, l3, c3, l2, c1, c2 };
-        assertArrayEquals(bundle.toArray(), cmp);
+        assertArrayEquals(sweets.toArray(), cmp);
     }
 
     @Test
@@ -50,12 +53,13 @@ public class BundleTest {
         c3.setFilling(Filling.MILK);
 
         Bundle bundle = new Bundle();
-        bundle.add(l1);
-        bundle.add(l2);
-        bundle.add(l3);
-        bundle.add(c1);
-        bundle.add(c2);
-        bundle.add(c3);
+        ArrayList<Sweet> sweets = bundle.getSweets();
+        sweets.add(l1);
+        sweets.add(l2);
+        sweets.add(l3);
+        sweets.add(c1);
+        sweets.add(c2);
+        sweets.add(c3);
 
         Range r1 = new Range(10, 12);
         Sweet f1 = bundle.find(r1);

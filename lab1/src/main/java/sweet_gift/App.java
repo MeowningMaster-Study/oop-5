@@ -5,6 +5,8 @@ import sweet_gift.Sweets.Filling;
 import sweet_gift.Sweets.Lollipop;
 import sweet_gift.Sweets.Sweet;
 
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) {
         Lollipop l1 = new Lollipop("L1", 14, 1);
@@ -18,12 +20,13 @@ public class App {
         c3.setFilling(Filling.MILK);
 
         Bundle bundle = new Bundle();
-        bundle.add(l1);
-        bundle.add(l2);
-        bundle.add(l3);
-        bundle.add(c1);
-        bundle.add(c2);
-        bundle.add(c3);
+        ArrayList<Sweet> sweets = bundle.getSweets();
+        sweets.add(l1);
+        sweets.add(l2);
+        sweets.add(l3);
+        sweets.add(c1);
+        sweets.add(c2);
+        sweets.add(c3);
 
         int totalWeight = bundle.weight();
         System.out.printf("Total weight: %d\n", totalWeight);

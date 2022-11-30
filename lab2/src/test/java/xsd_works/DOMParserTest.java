@@ -12,7 +12,7 @@ public class DOMParserTest {
     @Test
     @SneakyThrows
     public void parseTest() {
-        var papers = DOMParser.apply(Main.XMLPath, Main.XSDPath).getPapers();
+        var papers = DOMParser.apply(Main.XMLPath).getPapers();
         assertEquals(papers.size(), 3);
         assertEquals(papers.get(0), MockData.paper);
     }

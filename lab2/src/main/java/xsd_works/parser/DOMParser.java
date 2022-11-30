@@ -17,11 +17,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DOMParser {
-    public static Papers apply(String xmlPath, String xsdPath)
+    public static Papers apply(String xmlPath)
             throws ParserConfigurationException, IOException, SAXException {
         var dbf = DocumentBuilderFactory.newInstance();
         var db = dbf.newDocumentBuilder();
         var doc = db.parse(new File(xmlPath));
+        var handler = new Handler();
         var paperNodeList = doc.getElementsByTagName(PAPER);
         var papers = new ArrayList<Paper>();
         for (int i = 0; i < paperNodeList.getLength(); i++) {
