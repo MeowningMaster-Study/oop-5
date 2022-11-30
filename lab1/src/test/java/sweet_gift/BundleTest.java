@@ -8,21 +8,21 @@ import org.junit.Test;
 
 import sweet_gift.Sweets.Cookie;
 import sweet_gift.Sweets.Filling;
-import sweet_gift.Sweets.Lolipop;
+import sweet_gift.Sweets.Lollipop;
 import sweet_gift.Sweets.Sweet;
 
 public class BundleTest {
     @Test
     public void sortTest() {
-        Lolipop l1 = new Lolipop("L1", 14, 1);
-        Lolipop l2 = new Lolipop("L2", 20, 5);
-        Lolipop l3 = new Lolipop("L3", 10, 3);
-        l3.withGum = true;
+        Lollipop l1 = new Lollipop("L1", 14, 1);
+        Lollipop l2 = new Lollipop("L2", 20, 5);
+        Lollipop l3 = new Lollipop("L3", 10, 3);
+        l3.setWithGum(true);
 
         Cookie c1 = new Cookie("C1", 25, 5);
         Cookie c2 = new Cookie("C2", 40, 10);
         Cookie c3 = new Cookie("C3", 18, 4);
-        c3.filling = Filling.Milk;
+        c3.setFilling(Filling.MILK);
 
         Bundle bundle = new Bundle();
         bundle.add(l1);
@@ -39,15 +39,15 @@ public class BundleTest {
 
     @Test
     public void findTest() {
-        Lolipop l1 = new Lolipop("L1", 14, 1);
-        Lolipop l2 = new Lolipop("L2", 20, 5);
-        Lolipop l3 = new Lolipop("L3", 10, 3);
-        l3.withGum = true;
+        Lollipop l1 = new Lollipop("L1", 14, 1);
+        Lollipop l2 = new Lollipop("L2", 20, 5);
+        Lollipop l3 = new Lollipop("L3", 10, 3);
+        l3.setWithGum(true);
 
         Cookie c1 = new Cookie("C1", 25, 5);
         Cookie c2 = new Cookie("C2", 40, 10);
         Cookie c3 = new Cookie("C3", 18, 4);
-        c3.filling = Filling.Milk;
+        c3.setFilling(Filling.MILK);
 
         Bundle bundle = new Bundle();
         bundle.add(l1);

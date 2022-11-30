@@ -8,7 +8,7 @@ public class Bundle extends ArrayList<Sweet> {
     public int weight() {
         int total = 0;
         for (Sweet s : this) {
-            total += s.weight;
+            total += s.getWeight();
         }
         return total;
     }
@@ -20,7 +20,7 @@ public class Bundle extends ArrayList<Sweet> {
             for (int p = 1; p < size; p += 1) {
                 Sweet prev = this.get(p - 1);
                 Sweet curr = this.get(p);
-                if (prev.sugar > curr.sugar) {
+                if (prev.getSugar() > curr.getSugar()) {
                     // swap
                     this.set(p - 1, curr);
                     this.set(p, prev);
@@ -31,7 +31,7 @@ public class Bundle extends ArrayList<Sweet> {
 
     public Sweet find(Range range) {
         for (Sweet s : this) {
-            if (range.in(s.sugar)) {
+            if (range.in(s.getSugar())) {
                 return s;
             }
         }
