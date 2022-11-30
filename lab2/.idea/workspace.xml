@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad3bb857-ac30-42bb-8707-4b30c5a5416a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xsd_works/parser/DOMParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xsd_works/parser/DOMParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/xsd_works/DOMParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/xsd_works/DOMParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/meowster/Projects/School/oop-5/lab2"
+    "last_opened_file_path": "/home/meowster/Projects/School/oop-5/lab1"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -51,7 +49,8 @@
       <updated>1669823048052</updated>
       <workItem from="1669823049819" duration="136000" />
       <workItem from="1669824355478" duration="862000" />
-      <workItem from="1669825625850" duration="265000" />
+      <workItem from="1669825625850" duration="502000" />
+      <workItem from="1669826564074" duration="18000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,7 @@ public class App {
         CyclicBarrier barrier = new CyclicBarrier(n, () -> {
             System.out.printf("Cycle\n");
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
